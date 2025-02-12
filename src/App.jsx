@@ -138,7 +138,7 @@ function PromoBanner() {
 
         <div className="promo-code-timer">
           <span className="promo-code">
-            Enter Code <strong className="code">TREAT25</strong>
+            Enter Code <strong className="code">VDAY25</strong>
           </span>
           <span className="promo-divider"></span>
           <span className="promo-timer">
@@ -168,19 +168,6 @@ function PromoBanner() {
     </div>
   );
 }
-
-
-
-/* Product Grid */
-// function ProductCard({ image, name, discount }) {
-//   return (
-//     <div className="product-card">
-//       <img src={image} alt={name} />
-//       <p className="product-name">{name}</p>
-//       <span className="discount">{discount}% OFF</span>
-//     </div>
-//   );
-// }
 
 function ProductGrid() {
   const products = [
