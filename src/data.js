@@ -11,12 +11,17 @@ export const promoList = [
   ];
   
   export const promoImages = [
-    { src: "images/sale.png", alt: "Promo 1" },
-    { src: "images/tirtir.png", alt: "Promo 2" },
-    { src: "images/unleashia.png", alt: "Promo 3" },
-    { src: "images/laka.png", alt: "Promo 4" },
-    { src: "images/3ce.png", alt: "Promo 5" },
-    { src: "images/lilybyred.png", alt: "Promo 6" },
+    { src: "images/womensday.png", alt: "Promo 1" },
+    { src: "images/aplb.png", alt: "Promo 2" },
+    { src: "images/tirtir.png", alt: "Promo 3" },
+    { src: "images/medicube.png", alt: "Promo 4" },
+    { src: "images/unleashia.png", alt: "Promo 5" },
+    { src: "images/klairs.png", alt: "Promo 6" },
+    { src: "images/laka.png", alt: "Promo 7" },
+    { src: "images/dr.g.png", alt: "Promo 8" },
+    { src: "images/3ce.png", alt: "Promo 9" },
+    { src: "images/lilybyred.png", alt: "Promo 10" },
+    { src: "images/denim.png", alt: "Promo 11" },
   ];
 
   export const products = [
@@ -121,8 +126,8 @@ export const promoList = [
         description: "Here are the latest beauty launches at YesStyle at a glance!", 
         bgColor: "#f9b9ca" 
       },
-      { image: "images/Feb2025_Feature-Image.webp", 
-        title: "February’s Sponsored Products", 
+      { image: "images/Mar2025_Feature-Image.webp", 
+        title: "March’s Sponsored Products", 
         description: "This month, the YesStyle Influencer Program will be giving away these products for review!", 
         bgColor: "#e1eafb" 
       },

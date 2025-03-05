@@ -5,17 +5,17 @@ function PromoBanner() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [timer, setTimer] = useState(0);
+
+    const targetDate = new Date('2025-03-31T00:00:00').getTime();
   
     useEffect(() => {
-      const targetDate = new Date('2025-02-14T00:00:00').getTime();
-    
       const interval = setInterval(() => {
         const now = new Date().getTime();
         const timeRemaining = targetDate - now;
     
         if (timeRemaining <= 0) {
-          clearInterval(interval);
           setTimer(0); 
+          clearInterval(interval);
         } else {
           setTimer(timeRemaining);
         }
@@ -25,6 +25,8 @@ function PromoBanner() {
     }, []);
     
     const formatTime = (ms) => {
+      if (ms <= 0) return "00D 00H 00M 00S";
+
       const days = Math.floor(ms / (1000 * 60 * 60 * 24));
       const hours = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
@@ -41,13 +43,21 @@ function PromoBanner() {
     };
   
     const prevSlide = () => {
-      setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+      setCurrentIndex((prev) => (prev === 0 ? promoImages.length - 1 : prev - 1));
     };
   
     const nextSlide = () => {
-      setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+      setCurrentIndex((prev) => (prev === promoImages.length - 1 ? 0 : prev + 1));
     };
-  
+
+      // --- Auto-advance (slideshow) ---
+      useEffect(() => {
+        const slideshowInterval = setInterval(() => {
+          nextSlide();
+        }, 3000);
+        return () => clearInterval(slideshowInterval);
+      }, []);
+    
     return (
       <div className="promo-banner">
         <div className="promo-top">
@@ -69,7 +79,7 @@ function PromoBanner() {
   
           <div className="promo-code-timer">
             <span className="promo-code">
-              Enter Code <strong className="code">VDAY25</strong>
+              Enter Code <strong className="code">WOMEN25</strong>
             </span>
             <span className="promo-divider"></span>
             <span className="promo-timer">
@@ -96,6 +106,16 @@ function PromoBanner() {
             <i className="bi bi-chevron-right" style={{ color: "gray" }}></i>
           </button>
         </div>
+
+        <div className="dot-indicators">
+        {promoImages.map((_, index) => (
+          <span
+            key={index}
+            className={`dot ${index === currentIndex ? 'active' : ''}`}
+            onClick={() => setCurrentIndex(index)}
+          ></span>
+        ))}
+      </div>
       </div>
     );
   }
